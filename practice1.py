@@ -8,4 +8,26 @@ def pair_sum(array):
 
     return result
 
-print(pair_sum([1,2,3,-1]))
+# print(pair_sum([1,2,3,-1]))
+
+def quicksort(array):
+    if len(array) < 2:
+        return array
+
+    left = []
+    right = []
+    length = len(array)
+    pivot = array[0]
+
+    for x in array[1:length]:
+        if x > pivot:
+            right.append(x)
+        elif x < pivot:
+            left.append(x)
+        else:
+            pass
+
+    return quicksort(left) + [pivot] + quicksort(right)
+
+
+print(quicksort([6,3,2,9,7]))
