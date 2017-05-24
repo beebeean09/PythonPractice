@@ -41,4 +41,27 @@ def unique(array):
 
     return result
 
-print unique([1,2,2,3,3,4,3,2,2])
+# print unique([1,2,2,3,3,4,3,2,2])
+
+def is_substring(mainStr, str1):
+    if str1 in mainStr:
+        return True
+
+    return False
+
+# print(is_substring('hello', 'el'))
+
+def is_prime(number):
+    if number < 2:
+        return False
+
+    for x in range(2,number):
+        if number % x == 0:
+            return False
+
+    return True
+
+print(is_prime(5))
+print(is_prime(2))
+print(is_prime(9))
+print(is_prime(3))
