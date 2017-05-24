@@ -30,4 +30,15 @@ def quicksort(array):
     return quicksort(left) + [pivot] + quicksort(right)
 
 
-print(quicksort([6,3,2,9,7]))
+# print(quicksort([6,3,2,9,7]))
+
+def unique(array):
+    result = []
+
+    for x in array:
+        if not x in result:
+            result.append(x)
+
+    return result
+
+print unique([1,2,2,3,3,4,3,2,2])
