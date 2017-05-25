@@ -61,7 +61,42 @@ def is_prime(number):
 
     return True
 
-print(is_prime(5))
-print(is_prime(2))
-print(is_prime(9))
-print(is_prime(3))
+# print(is_prime(5))
+# print(is_prime(2))
+# print(is_prime(9))
+# print(is_prime(3))
+
+
+# You are working on a phone book application. Since users often enter their phone numbers using different formats, such as (650) 555-1234 or 650 555 1234, you would like to write a function to normalize these numbers to a common format,  650-555-1234.
+#
+# Implement the Java function standardizePhoneNumber, which converts the input phone numbers into the standard format  or returns an empty string if the input phone number is invalid.
+#
+# (650) 555-1234 650-555-1234
+# 65.0555.1234 650-555-1234
+# 65/05/5512/34 650-555-1234
+# (650) 555-1234 x111 is invalid
+# (650) 555-123 is invalid
+
+def phone_book(number):
+    integers = ['1','2','3','4','5','6','7','8','9','0']
+    phone_num = ''
+
+    for x in number:
+        if len(phone_num) == 3 and x in integers:
+            phone_num += '-' + x
+        elif len(phone_num) == 7 and x in integers:
+            phone_num += '-' + x
+        elif x in integers:
+            phone_num += x
+        else:
+            pass
+
+    if len(phone_num) == 12:
+        return phone_num
+    else:
+        return False
+
+print(phone_book('(650) 555-1234)'))
+print(phone_book('(650) 555-x1234 234)'))
+print(phone_book('(650) 555-x)'))
+print(phone_book('6475667384'))
