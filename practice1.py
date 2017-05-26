@@ -100,3 +100,32 @@ def phone_book(number):
 # print(phone_book('(650) 555-x1234 234)'))
 # print(phone_book('(650) 555-x)'))
 # print(phone_book('6475667384'))
+
+def fizz_buzz(array):
+    result = []
+
+    for x in array:
+        if (x % 3 == 0 and x % 5 != 0) or (x % 3 != 0 and x % 5 == 0):
+            result.append(x)
+        else:
+            pass
+
+    return result
+
+print(fizz_buzz([12, 15, 3, 10, 2, 30, 7]))
+
+def titleize(title):
+    not_these =['a', 'the', 'over', 'of']
+    words = title.split(' ')
+    result = []
+
+    for word in words[1..-1]:
+        if word in not_these:
+            result.append(word)
+        else:
+            result.append(word.capitalize)
+
+    return result.join(' ')
+
+
+print(titleize('hello my name is vivian and I like to go over the rainbow of the sky.'))

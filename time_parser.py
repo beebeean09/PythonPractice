@@ -1,4 +1,4 @@
-def parse_time(str_time):
+# def parse_time(str_time):
     # '12:00:00'
 
 
@@ -16,7 +16,7 @@ for line in lines:
     time = time.split(')')[0]
     # print(time)
     if status in time_hash:
-        time_hash[status] -= parse_time(time))
+        time_hash[status] -= parse_time(time)
     else:
         time_hash[status] = time
 
