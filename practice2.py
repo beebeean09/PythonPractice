@@ -7,6 +7,16 @@ For example:
     python test_answer.py tests/input_1.json
 """
 
+# Example test case:
+# {
+#     "boggle_board": [
+#         'hel',
+#         'owo',
+#         'rld'
+#     ],
+#     "list_path": 'test_input.txt'
+# }
+
 def neighbor_pos(position, length):
     # gives me new positions of neighboring letters
     x,y = position
