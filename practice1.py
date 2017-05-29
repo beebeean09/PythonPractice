@@ -114,18 +114,38 @@ def fizz_buzz(array):
 
 print(fizz_buzz([12, 15, 3, 10, 2, 30, 7]))
 
-def titleize(title):
-    not_these =['a', 'the', 'over', 'of']
-    words = title.split(' ')
-    result = []
+# def titleize(title):
+#     not_these =['a', 'the', 'over', 'of']
+#     words = title.split(' ')
+#     result = []
+#
+#     for word in words[0:]:
+#         if word in not_these:
+#             result.append(word)
+#         else:
+#             result.append(word.capitalize)
+#
+#     return result.join(' ')
+#
+#
+# print(titleize('hello my name is vivian and I like to go over the rainbow of the sky.'))
 
-    for word in words[1..-1]:
-        if word in not_these:
-            result.append(word)
+def bsearch(target, list_arr):
+    if len(list_arr) == 0:
+        return -1
+
+    middle_idx = len(list_arr) / 2
+    if list_arr[middle_idx] == target:
+        return middle_idx
+    elif list_arr[middle_idx] < target:
+        left = list_arr[0:middle_idx]
+        bsearch(target, left)
+    elif list_arr[middle_idx] > target:
+        right = list_arr[middle_idx + 1: len(list_arr)]
+        if right == -1:
+            return -1
         else:
-            result.append(word.capitalize)
-
-    return result.join(' ')
+            return right + middle_idx + 1
 
 
-print(titleize('hello my name is vivian and I like to go over the rainbow of the sky.'))
+print(bsearch(1, [1,2,3,5,3,8])) #3
