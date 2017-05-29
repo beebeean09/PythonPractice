@@ -112,7 +112,7 @@ def fizz_buzz(array):
 
     return result
 
-print(fizz_buzz([12, 15, 3, 10, 2, 30, 7]))
+# print(fizz_buzz([12, 15, 3, 10, 2, 30, 7]))
 
 # def titleize(title):
 #     not_these =['a', 'the', 'over', 'of']
@@ -134,20 +134,29 @@ def bsearch(target, list_arr):
     if len(list_arr) == 0:
         return -1
 
-    middle_idx = len(list_arr) / 2
+    result = 0
+
+    middle_idx = int(len(list_arr) / 2)
+    # print(middle_idx)
     if list_arr[middle_idx] == target:
+        # print(list_arr[middle_idx])
+        # print(middle_idx)
         return middle_idx
-    elif list_arr[middle_idx] < target:
+    elif list_arr[middle_idx] > target:
         left = list_arr[0:middle_idx]
         bsearch(target, left)
-    elif list_arr[middle_idx] > target:
+    elif list_arr[middle_idx] < target:
+        # print(list_arr[middle_idx + 1: len(list_arr)])
         subs_list = bsearch(target, list_arr[middle_idx + 1: len(list_arr)])
         if subs_list == -1:
             return -1
         else:
-            print(subs_list)
-            print(middle_idx)
-            return subs_list + [middle_idx] + [1]
+            # print(subs_list)
+            # print(middle_idx)
+            result = subs_list + middle_idx + 1
+            print(result)
+            return result
 
+    return result
 
-print(bsearch(3, [1,2,3,5,3,8])) #3
+print(bsearch(3, [1,2,3,4,5,8])) #3
