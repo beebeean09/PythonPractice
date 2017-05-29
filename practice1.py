@@ -144,19 +144,15 @@ def bsearch(target, list_arr):
         return middle_idx
     elif list_arr[middle_idx] > target:
         left = list_arr[0:middle_idx]
-        bsearch(target, left)
+        return bsearch(target, left)
     elif list_arr[middle_idx] < target:
         # print(list_arr[middle_idx + 1: len(list_arr)])
         subs_list = bsearch(target, list_arr[middle_idx + 1: len(list_arr)])
         if subs_list == -1:
             return -1
         else:
-            # print(subs_list)
-            # print(middle_idx)
             result = subs_list + middle_idx + 1
-            print(result)
-            return result
 
     return result
 
-print(bsearch(3, [1,2,3,4,5,8])) #3
+print(bsearch(5, [1,2,3,4,5,8])) #4
