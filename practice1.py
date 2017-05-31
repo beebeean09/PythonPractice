@@ -188,5 +188,62 @@ def sort_odds_array(source_array):
     return source_array
 
 
-print(sort_odds_array([5,3,4,1,2]))
+# print(sort_odds_array([5,3,4,1,2]))
 # [1,3,4,5,2]
+
+def SumMultiplier(arr):
+
+    double_sum = 0
+    for num in arr:
+        double_sum += num
+
+    double_sum = double_sum * 2
+    for idx1 in range(len(arr)):
+        for idx2 in range(idx1 + 1,len(arr)):
+            if arr[idx1] * arr[idx2] > double_sum:
+                return True
+            else:
+                pass
+
+    return False
+
+# print(SumMultiplier([2,2,2,2,4,1])) #False
+
+# Find the word with the most repeated letters.
+# Return -1 if no letters repeat in any of the words.
+
+def CountRepLetters(word):
+    my_dict = {}
+    max_count = 0
+
+    for letter in word:
+        if letter in my_dict:
+            my_dict[letter] += 1
+        else:
+            my_dict[letter] = 1
+
+    max_count = max(my_dict.values())
+    return max_count
+
+
+def LetterCount(str):
+
+    max_count = 0
+    max_rep_word = ""
+    words = str.split(' ')
+
+    for word in words:
+        letter_count = CountRepLetters(word)
+        if max_count < letter_count and letter_count != 1:
+            max_count = letter_count
+            max_rep_word = word
+        else:
+            pass
+
+    if max_rep_word == "":
+        return -1
+
+    return max_rep_word
+
+print(LetterCount('hello my name is vivian')) #hello
+print(LetterCount('my cat is a dog')) #-1
