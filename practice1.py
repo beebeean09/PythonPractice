@@ -247,3 +247,28 @@ def LetterCount(str):
 
 print(LetterCount('hello my name is vivian')) #hello
 print(LetterCount('my cat is a dog')) #-1
+
+# Return count of digit followed by digit.
+def LookSaySequence(num):
+
+    next_num = ''
+
+    num_str = str(num)
+    current_num = ''
+    current_count = 0
+
+    for idx in range(len(num_str)):
+        current_num = num_str[idx] #1 #2
+        current_count += 1 #1 #1
+
+        if idx == len(num_str) - 1:
+            next_num += (str(current_count) + current_num)
+        elif num_str[idx] != num_str[idx + 1]:
+            next_num += (str(current_count) + current_num)
+            current_count = 0
+        else:
+            pass
+
+    return next_num
+
+print(LookSaySequence(1211))
