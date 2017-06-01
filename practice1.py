@@ -297,3 +297,32 @@ def NumberEncoding(string):
     return result
 
 # print(NumberEncoding("hello 45")) #85121215 45
+
+
+# Return 1 if brackets do not match. Return 0 if they do match.
+def BracketMatcher(str):
+
+    match = False
+    bracket = ''
+    first = 'default'
+
+    for el in str:
+        if el == '(' and first == 'default':
+            bracket = el
+            first = True
+            continue
+        elif el == '(' and first == True:
+            return 1
+        elif el == ')' and first == True:
+            return 1
+        elif el == ')' and first == False:
+            pass
+
+
+    if first == 'default':
+        return 1
+
+    return 0
+
+#print(BracketMatcher('(code)(life)')) #0
+#print(BracketMatcher('(r(code)(life)')) #1
