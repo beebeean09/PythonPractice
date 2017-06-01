@@ -271,4 +271,29 @@ def LookSaySequence(num):
 
     return next_num
 
-print(LookSaySequence(1211))
+# print(LookSaySequence(1211)) #111221
+
+def NumberEncoding(string):
+
+    my_hash = {}
+    result = ''
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+    for idx in range(27):
+        if idx == 26:
+            letter = alphabet[25]
+            my_hash[letter] = idx
+        else:
+            letter = alphabet[idx]
+            my_hash[letter] = idx + 1
+
+    for el in string:
+        if el in alphabet:
+            result += str(my_hash[el])
+        else:
+            result += el
+
+
+    return result
+
+# print(NumberEncoding("hello 45")) #85121215 45
