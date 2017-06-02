@@ -155,7 +155,7 @@ def bsearch(target, list_arr):
 
     return result
 
-print(bsearch(5, [1,2,3,4,5,8])) #4
+# print(bsearch(5, [1,2,3,4,5,8])) #4
 
 
 # You have an array of numbers.
@@ -245,8 +245,8 @@ def LetterCount(str):
 
     return max_rep_word
 
-print(LetterCount('hello my name is vivian')) #hello
-print(LetterCount('my cat is a dog')) #-1
+# print(LetterCount('hello my name is vivian')) #hello
+# print(LetterCount('my cat is a dog')) #-1
 
 # Return count of digit followed by digit.
 def LookSaySequence(num):
@@ -326,3 +326,28 @@ def BracketMatcher(str):
 
 #print(BracketMatcher('(code)(life)')) #0
 #print(BracketMatcher('(r(code)(life)')) #1
+
+# Check if anagrams. Count the number of letters need to delete to make
+# anagrams of the two strings
+def number_needed(a, b):
+    a2  = []
+    b2 = []
+    a2.extend(a)
+    b2.extend(b)
+    count = 0
+
+    for el in a2:
+
+        if el in b:
+            b_idx = b2.index(el)
+            a_idx = a2.index(el)
+            del a2[a_idx]
+            del b2[b_idx]
+        else:
+            pass
+
+    count = len(a2) + len(b2)
+
+    return count
+
+print(number_needed('cbl', 'abc')) #4
