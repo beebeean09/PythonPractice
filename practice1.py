@@ -350,4 +350,25 @@ def number_needed(a, b):
     print(letter_idx)
     return int(count)
 
-print(number_needed('cbl', 'abc')) #2
+# print(number_needed('cbl', 'abc')) #2
+
+# Find multiples of 3 and 5, return the numbers less than num given
+def ThreeFiveMultiples(num):
+    result = []
+
+    while True:
+        for x in range(1, 101):
+            if x == num or x > num:
+                break
+            elif x % 3 == 0 or x % 5 == 0:
+                result.append(x)
+
+        break
+
+    sum_result = 0
+    for el in result:
+        sum_result += el
+
+    return sum_result
+
+# print(ThreeFiveMultiples(6)) #[3,5] = 8
