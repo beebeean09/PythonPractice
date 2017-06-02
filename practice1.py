@@ -372,3 +372,18 @@ def ThreeFiveMultiples(num):
     return sum_result
 
 # print(ThreeFiveMultiples(6)) #[3,5] = 8
+
+# Rotate array according to rotation and return new array
+def array_left_rotation(a, n, k):
+    #n = length
+    #k = num of rotations
+    #a = array
+
+    result = [0] * n
+    for idx in range(n):
+        new_index = idx - k % n
+        result[new_index] = a[idx]
+
+    return result
+
+# print(array_left_rotation([1,2,3,4,5], 5, 4)) # [5,1,2,3,4]
