@@ -329,25 +329,25 @@ def BracketMatcher(str):
 
 # Check if anagrams. Count the number of letters need to delete to make
 # anagrams of the two strings
+from math import fabs
+
 def number_needed(a, b):
-    a2  = []
-    b2 = []
-    a2.extend(a)
-    b2.extend(b)
+    letter_idx = [0] * 26
+
+    for c in a:
+        index = ord(c) - ord('a')
+        letter_idx[index] += 1
+
+    for c in b:
+        index = ord(c) - ord('a')
+        letter_idx[index] -= 1
+
     count = 0
+    for idx in letter_idx:
+        count += fabs(idx)
 
-    for el in a2:
 
-        if el in b:
-            b_idx = b2.index(el)
-            a_idx = a2.index(el)
-            del a2[a_idx]
-            del b2[b_idx]
-        else:
-            pass
+    print(letter_idx)
+    return int(count)
 
-    count = len(a2) + len(b2)
-
-    return count
-
-print(number_needed('cbl', 'abc')) #4
+print(number_needed('cbl', 'abc')) #2
