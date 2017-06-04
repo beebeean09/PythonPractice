@@ -11,18 +11,47 @@ A Node is defined as:
 
 
 def has_cycle(head):
-    print(head)
-    if head.data == None:
-        return False
-    elif head.next.data == None:
+    if head == None:
         return False
 
-    current = head
-    next_current = head.next
-    after_next_current = current.next
-    while next_current.data != None:
-        if after_current == current:
+    slow = head
+    fast = head.next
+    while slow != fast:
+        if fast == None or fast.next == None:
             return False
+
+        slow = slow.next
+        fast = fast.next.next
+
+    return True
+
+#2nd way using a set
+def has_cycle2(head):
+    current = head
+    seen = set()
+
+    while head:
+        if current in seen:
+            return True
         else:
-            current = next_current
-    
+            seen.add(current)
+            if current.next != None:
+                current = current.next
+            else:
+                break
+
+    return False
+
+# 3rd way using dictionary
+def has_cycle3(head):
+    visited = {}
+    while head:
+        visited[head] = 1
+        if visited.get(head.next, 0) != 0:
+            return True
+        elif current.next != None:
+            current = current.next
+        else:
+            break
+
+    return False
