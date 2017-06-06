@@ -47,3 +47,16 @@ def lonely_integer(a):
 
 
 print(lonely_integer([1,3,4,6,3,1,4]))
+
+# Print a staircase given a num of levels
+length = n + 1
+for idx in range(1,length):
+    spaces = ' ' * (n - idx)
+    hash_tag = '#' * idx
+    print(spaces + hash_tag)
+
+# '     #'
+# '    ##'
+# '   ###'
+# '  ####'
+# ' #####'
