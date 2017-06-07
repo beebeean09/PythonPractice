@@ -114,3 +114,12 @@ def mini_max_sum(arr):
     print(str(max_sum[0]) + ' ' + str(max_sum[-1]))
 
 mini_max_sum([1,2,3,4,5]) # 10 14
+
+# Factorial with recursion
+def factorial(num):
+    if num == 0: return 1
+    result = factorial(num - 1)
+    return num * result
+
+print(factorial(0)) #1
+print(factorial(4)) #24
