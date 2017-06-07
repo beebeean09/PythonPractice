@@ -1,23 +1,18 @@
+from math import fabs
+
 def number_needed(a, b):
+    letter_idx = [0] * 26
+    
+    for c in a:
+        index = ord(c) - ord('a')
+        letter_idx[index] += 1
+    
+    for c in b:
+        index = ord(c) - ord('a')
+        letter_idx[index] -= 1
+    
     count = 0
-    a_length = len(a)
+    for idx in letter_idx:
+        count += fabs(idx)
     
-    a2 = []
-    b2 = []
-    a2.extend(a)
-    b2.extend(b)
-    
-    for idx in range(a_length):
-        if a[idx] in b:
-            idx2 = b2.index(a2[idx])
-            a2.pop(idx)
-            b2.pop(idx2)
-        else:
-            pass
-    
-    count = len(a2) + len(b2)
-    
-    return count
-
-
-print(number_needed('abbbd', 'abklo'))
+    return int(count)

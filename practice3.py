@@ -49,14 +49,42 @@ def lonely_integer(a):
 print(lonely_integer([1,3,4,6,3,1,4]))
 
 # Print a staircase given a num of levels
-length = n + 1
-for idx in range(1,length):
-    spaces = ' ' * (n - idx)
-    hash_tag = '#' * idx
-    print(spaces + hash_tag)
+# length = n + 1
+# for idx in range(1,length):
+#     spaces = ' ' * (n - idx)
+#     hash_tag = '#' * idx
+#     print(spaces + hash_tag)
 
 # '     #'
 # '    ##'
 # '   ###'
 # '  ####'
 # ' #####'
+
+from math import fabs
+
+def diag_sums(n, arr):
+    first_diag = []
+    sec_diag = []
+
+    for idx in range(n):
+        row = arr[idx]
+        first_diag.append(row[idx])
+
+    for idx2 in range(n):
+        row = arr[idx2]
+        sec_diag.append(row[len(row) - idx2 - 1])
+
+    first_sum = 0
+    sec_sum = 0
+
+    for num in first_diag:
+        first_sum += num
+
+    for num2 in sec_diag:
+        sec_sum += num2
+
+    print(int(fabs(first_sum - sec_sum)))
+
+diag_sums(3, [[1,2,3], [3,2,1], [4,3,2]]) #4
+# [1,2,2] - [3,2,4] = |5 - 9| = 4
