@@ -88,3 +88,29 @@ def diag_sums(n, arr):
 
 diag_sums(3, [[1,2,3], [3,2,1], [4,3,2]]) #4
 # [1,2,2] - [3,2,4] = |5 - 9| = 4
+
+# Mini-Max Sum, find the sum of all other elements except for current el;
+# return the min and max sum
+import sys
+from functools import reduce
+
+def mini_max_sum(arr):
+    max_sum = []
+    length = len(arr)
+    for num in range(length):
+        if arr[:num]:
+            front = reduce((lambda x, y: x + y), arr[:num])
+        else:
+            front = 0
+        if arr[num + 1:]:
+            back = reduce((lambda x, y: x + y), arr[num + 1:])
+        else:
+            back = 0
+
+        temp_sum = front + back
+        max_sum.append(temp_sum)
+
+    max_sum.sort()
+    print(str(max_sum[0]) + ' ' + str(max_sum[-1]))
+
+mini_max_sum([1,2,3,4,5]) # 10 14
