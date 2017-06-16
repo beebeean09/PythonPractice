@@ -387,3 +387,30 @@ def array_left_rotation(a, n, k):
     return result
 
 # print(array_left_rotation([1,2,3,4,5], 5, 4)) # [5,1,2,3,4]
+
+def merge_sort(array):
+    if len(array) < 2: return array
+
+    middle_idx = int(len(array) / 2)
+    sorted_left = merge_sort(array[0:middle_idx])
+    sorted_right = merge_sort(array[middle_idx:])
+
+    return merge(sorted_left, sorted_right)
+
+
+def merge(left, right):
+    result = []
+
+    while left and right:
+        if left[0] > right[0]:
+            result.append(right[0])
+            del right[0]
+        else:
+            result.append(left[0])
+            del left[0]
+
+
+    return result + left + right
+
+
+print(merge_sort([5,1,3,2,4]))
