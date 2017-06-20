@@ -435,5 +435,27 @@ def titleize(title):
 
     return result
 
-print(titleize("hello my name is vivian haha"))
-print(titleize("and my name is vivian of the boba land"))
+# print(titleize("hello my name is vivian haha"))
+# print(titleize("and my name is vivian of the boba land"))
+
+def pig_latinify(sentence):
+    words = sentence.split(" ")
+    result = ""
+
+    for word in words:
+        result += pig_latinified(word) + ' '
+
+    return result
+
+
+def pig_latinified(word):
+    vowels = 'aeiou'
+
+    while word[0] not in vowels:
+        word = word[1:] + word[0]
+
+    return word + 'ay'
+
+
+print(pig_latinify('hello are you there'))
+print(pig_latinify('apple pearl quick'))
